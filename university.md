@@ -12,53 +12,79 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 
 ## name Table `departments`  PRIMARY
-- id (INT)  PK - AUTO-INCREMENT
-- name
--
+
+**Columns:**
+- id (INT) – PRIMARY KEY – AUTO_INCREMENT – NOT NULL
+- name (VARCHAR(255)) – NOT NULL
 
 ---
 
 ## name Table `degree_courses`  SECONDARY
-- id (INT)  PK - AUTO-INCREMENT
-- department_id (INT) NN
-- name
+**Columns:**
+- id (INT) – PRIMARY KEY – AUTO_INCREMENT – NOT NULL
+- department_id (INT) – FOREIGN KEY – NOT NULL
+- name (VARCHAR(255)) – NOT NULL
 
 
 ---
 
 ## name Table `courses`  SECONDARY
-- id (INT)  PK - AUTO-INCREMENT
-- degree_course_id
-
+**Columns:**
+- id (INT) – PRIMARY KEY – AUTO_INCREMENT – NOT NULL
+- degree_course_id (INT) – FOREIGN KEY  – NOT NULL
+- name (VARCHAR(255)) – NOT NULL
 
 ---
 
 ## name Table `exam_appeals`  SECONDARY
-- id (BIGINT)  PK - AUTO-INCREMENT
-- course_id
-- teacher_id
-- student_id
-- date (DATETIME)
--
+**Columns:**
+- id (BIGINT) – PRIMARY KEY – AUTO_INCREMENT – NOT NULL
+- course_id (INT) – FOREIGN KEY REFERENCES  – NOT NULL
+- teacher_id (INT) – FOREIGN KEY REFERENCES  – NOT NULL
+- date (DATETIME) – NOT NULL
+- vote (TINYINT) – NOT NULL
 
 
 ---
 
 ## name Table `teachers`  PRIMARY
-- id (INT)  PK - AUTO-INCREMENT
-- name
-- lastname
+**Columns:**
+- id (INT) – PRIMARY KEY – AUTO_INCREMENT – NOT NULL
+- name (VARCHAR(100)) – NOT NULL
+- lastname (VARCHAR(100)) – NOT NULL
 
 
 
 ---
 
 ## name Table `students` PRIMARY
-- id (BIGINT)  PK - AUTO-INCREMENT
-- name
-- lastname
+**Columns:**
+- id (BIGINT) – PRIMARY KEY – AUTO_INCREMENT – NOT NULL
+- name (VARCHAR(100)) – NOT NULL
+- lastname (VARCHAR(100)) – NOT NULL
+- degree_course_id (INT) – FOREIGN KEY – NOT NULL
 
 
 ---
+
+
+
+## Table: `course_teacher` (Pivot)
+
+**Columns:**
+- course_id (INT) – FOREIGN KEY – NOT NULL
+- teacher_id (INT) – FOREIGN KEY – NOT NULL
+
+
+---
+
+## Table: `exam_appeal_student` (Pivot)
+
+**Columns:**
+- exam_appeal_id (INT) – FOREIGN KEY – NOT NULL
+- student_id (INT) – FOREIGN KEY – NOT NULL
+
+
+
 
 
