@@ -42,7 +42,7 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - course_id (INT) – FOREIGN KEY REFERENCES  – NOT NULL
 - teacher_id (INT) – FOREIGN KEY REFERENCES  – NOT NULL
 - date (DATETIME) – NOT NULL
-- vote (TINYINT) – NOT NULL
+
 
 
 ---
@@ -83,6 +83,7 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 **Columns:**
 - exam_appeal_id (INT) – FOREIGN KEY – NOT NULL
 - student_id (INT) – FOREIGN KEY – NOT NULL
+- vote (TINYINT) – NOT NULL
 
 
 
