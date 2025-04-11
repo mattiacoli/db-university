@@ -96,6 +96,11 @@ JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
 
 
 ```
+SELECT students.id as student_id, students.name, students.surname, COUNT(*) as total_attempts, MAX(exam_student.vote) as max_vote
+FROM students
+JOIN exam_student ON students.id = exam_student.student_id
+JOIN exams on exams.id = exam_student.exam_id
+GROUP BY students.id, students.name
 
 
 ```
