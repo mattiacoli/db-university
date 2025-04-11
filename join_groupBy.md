@@ -116,9 +116,12 @@ JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
 
 
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+-teachers
 
 ```
-
+ SELECT COUNT(*) as total_teachers , teachers.office_address  as office_address
+ FROM teachers
+ GROUP BY teachers.office_address
 
 ```
 
