@@ -80,6 +80,13 @@ JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 
 ```
+ SELECT DISTINCT teachers.name as teacher_name, teachers.surname, departments.name as department_name
+ FROM teachers
+ JOIN course_teacher ON course_teacher.teacher_id = teachers.id
+ JOIN courses ON courses.id = course_teacher.course_id
+ JOIN degrees ON degrees.id = courses.degree_id
+ JOIN departments ON departments.id = degrees.department_id
+ WHERE departments.name = 'Dipartimento di Matematica'
 
 
 ```
@@ -98,9 +105,38 @@ JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
 
 📌 GROUP BY
 1. Contare quanti iscritti ci sono stati ogni anno
+- students
+
+```
+ SELECT COUNT(*) as total_student, YEAR(enrolment_date) as year
+ FROM students
+ GROUP BY YEAR(enrolment_date)
+
+```
+
+
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+```
+
+
+```
+
+
 3. Calcolare la media dei voti di ogni appello d'esame
+
+```
+
+
+```
+
+
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+```
+
+
+```
 
 
 
