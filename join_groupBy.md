@@ -129,7 +129,10 @@ JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
 3. Calcolare la media dei voti di ogni appello d'esame
 
 ```
-
+SELECT AVG(exam_student.vote) as vote_average, exams.id as exam_id, exams.date as date_of_exams
+FROM exam_student
+JOIN exams ON exams.id = exam_student.exam_id
+GROUP BY exam_id
 
 ```
 
